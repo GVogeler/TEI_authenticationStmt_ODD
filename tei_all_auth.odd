@@ -4,7 +4,7 @@
     <fileDesc>
       <titleStmt>
         <title>TEI added authenticationStmt </title>
-        <author>Georg Vogeler</author>
+        <author>Georg Vogeler, University of Graz</author>
       </titleStmt>
       <publicationStmt>
         <publisher>TEI Consortium</publisher>
@@ -33,13 +33,64 @@
     <body>
       <head>TEI Documentality</head>
       <p>This TEI customization describes a schema that adds to the <gi>teiHeader</gi> a metadata scheme describing the text as the result of an intention to create a social reality.</p>
-      <schemaSpec ident="tei_all_auth" start="TEI teiCorpus" prefix="auth_" targetLang="en"
+      <p>Texts can create social reality. Humans have developed several methods to warrant that they gain trust. These methods for procedural and symoblic authentication include signatures, seals or stamps committing the person represented by this to claim made by the text. This chapter introduces the <specDesc key="authenticationStmt"/> to describe this. The user of this element can include simple prose or use three elements to be more explicit <specList>
+        <specDesc key="authDesc"/>
+        <specDesc key="issued"/>
+        <specDesc key="leaglActor"/>
+      </specList>
+      The <gi>authDesc</gi> can inlude a systematic description of the individual features used for authentication:
+      <specList>
+        <specDesc key="authen"/>
+        <specDesc key="seal"/>
+        <specDesc key="signed"/>
+        <specDesc key="stamp"/>
+        <specDesc key="watermark"/>
+      </specList>
+      </p>
+      <div>
+        <head>Authentication</head>
+        <p>The proposed elements are a consequence of the capacity of language to be performative utterances (J.L. Austin). Birth certificates, ionternational treaties, commercial contracts, land leases, royal diplomas, or imperial decress are concrete examples of this. They gain authority through the trust that text corresponds to the reality. Societies have developed mechanisms of validation that support this trust, reducing the risk of being dismissed as forgeries or drafts. These authentication methods can be recorded as a property of the text encoded according to these guidelines as part of the teiHeader or in a description of a single physical document (<gi>msDesc</gi>) with the element <specDesc key="authenticationStmt"/>.</p>
+        <p>The <gi>authenticationStmt</gi> describes material, procedural, symbolic or interpretative authenticity of a document. Any consideration about the relationship between the claim a text makes and reality can be discussed in simple prose.</p>
+        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+          <authenticationStmt>
+            <p>###</p>
+          </authenticationStmt>
+        </egXML>
+        <p>This chapter suggests further elements dedicated to the core information needed to describe the creation of social reality through the text: 
+          <list>
+            <item>the method of authentication itself (<specDesc key="authDesc"/>),</item> 
+            <item>the social actors committed to claim of the document (<specDesc key="legalActor"/>) and</item>
+            <item>the temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>).</item>
+          </list></p>
+        <div>
+          <head>Method of authentication itself (<specDesc key="authDesc"/>)</head>
+          <p>A generic <specDesc key="authen"/> elements covers all sorts of authentication methods that can be specified through the <gi>type</gi>-attribute. For some established methods exist elements used in other contexts: Impressions of a <specDesc key="seal"/> as material object embodying the authority of the issuer, or a <specDesc key="stamp"/> in ink or embossed mark serving as bureaucratic authentication can serve as symbolic record of authenticity. They express the commitment of the author of a document to its content in the same way as signatures (<specDesc key="signed"/>) or autographs do through handwriting. Using fingerprints or individualised symbolic drawings like in the medieval notarial culture add other methods that are linked to an individual.</p>
+          <p>Technical methods of marking authenticity can be a <specDesc key="watermark"/>, as a more or less hidden sign embedded in the writing material or a digital file. In the digital realm all sorts digital certificate exist as cryptographic equivalent of a seal or signature in the digital sphere. Algorithmic authentication, e.g. through a blockchain ledger are a technical infrastructure acting as validators in the digital domain.</p>
+          <p>The <gi>type</gi> of the <gi>authen</gi> element should preferably reference controlled vocabularies, like the <ref target="https://www.cei.lmu.de/VID">Vocabulaire Internationale de la Diplomatique</ref>.</p>
+          <p>The element includes the possibility to describe the method of authentication in prose in the reflection of the role of ritual performances creating the social object inscribed in a document. Handing over the document, public reading of a document, courtroom verdicts or oaths can be part of the authentication and need verbal description to record them.</p>
+        </div>
+        <div>
+          <head>Social actors committed to claim of the document (<specDesc key="legalActor"/>)</head>
+          <p>Several persons, groups, and institutions can issue the authority of the document. Grantors, donors, sovereigns, magistrate, or in general the <term>issuer</term>of a document are authors of the perforamtive text. They produces the document and claims authority behind it, give a privilege or property, or are the  political or legal authorities whose will the document embodies. Chanceries, i.e. specialized office in royal or ecclesiastical administrations responsible for drafting and issuing charters and diplomas, notaries as legally empowered scribe or official who writes and validates documents in civic and ecclesiastical contexts or the individual scribe physically writing the text, often trained in distinctive scripts signaling authenticity guarantee procedural authenticity.</p>
+          <p>Legal actors can be mediating. Witnesses attest to the truth and legality of the act. Counter-signer add a second signature to strengthen trust in the first. Seal bearer charged with affixing and safeguarding the seal, which authenticates the document, the bureaucrats keeping official registers, against which copies can be checked, custodians and archivist are responsible for preserving and controlling access to the document.</p>
+          <p>In more contemporary environments, specialised registrars of Vital Statistics certify births, deaths, marriages. The insitutions of a notary public ensures the authenticity of signatures and transactions. Auditors check the correctness of documents within bureaucratic or financial systems. In digital environments Certification Authorities issue digital certificates that are used to signed documents.</p>
+          <p>On the side of recipients and users, beneficiaries and grantees are legal actors involved as they receive rights or recognition through the document. A petitioner requests a document or privilege and profits from them. Documents become social reality through an the formal audience named in the document that can be the general public, that, as a community can acknowledge the document’s authority (e.g., through ceremonial reading).</p>
+          <p>These roles can be assigned through the <gi>type</gi> attribute of the <gi>legalActor</gi> element and identified through the naming mechanisms provided by these guidelines. It is recommended to use shared vocabularies for these role, e.g. through the <ref target="https://www.cei.lmu.de/VID">Vocabulare Internationale de la Diplomatique</ref>.</p>
+        </div>
+        <div>
+          <head>the temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>)</head>
+          <p>Time and place of the preformative act describe jurisdiction and </p>
+        </div>
+      </div>
+      <div>
+        <head>Specifications</head>
+        <schemaSpec ident="tei_all_auth" start="TEI teiCorpus" prefix="auth_" targetLang="en"
         docLang="en">
         <moduleRef n="01" key="tei"/>
         <moduleRef n="02" key="header"/>
         <moduleRef n="03" key="core"/>
         <moduleRef n="04" key="textstructure"/>
-        <moduleRef n="05" key="gaiji"/>
+        <!--<moduleRef n="05" key="gaiji"/>
         <moduleRef n="06" key="verse"/>
         <moduleRef n="07" key="drama"/>
         <moduleRef n="08" key="spoken"/>
@@ -56,7 +107,30 @@
         <moduleRef n="19" key="iso-fs"/>
         <moduleRef n="20" key="nets"/>
         <moduleRef n="22" key="certainty"/>
-        <moduleRef n="23" key="tagdocs"/>
+        <moduleRef n="23" key="tagdocs"/>-->
+          
+        <moduleRef key="msdescription"/>
+        <moduleRef key="namesdates" include="placeName persName"/>
+        <elementSpec ident="msDesc" mode="change">
+          <content>
+            <sequence maxOccurs="1" minOccurs="1">
+              <elementRef key="msIdentifier"/>
+              <classRef key="model.headLike"/>
+              <alternate maxOccurs="1" minOccurs="1">
+                <classRef key="model.pLike"/>
+                <alternate maxOccurs="unbounded" minOccurs="0">
+                  <elementRef key="msContents"/>
+                  <elementRef key="authenticationStmt"/>
+                  <elementRef key="physDesc"/>
+                  <elementRef key="history"/>
+                  <elementRef key="additional"/>
+                  <elementRef key="msPart"/>
+                  <elementRef key="msFrag"/>
+                </alternate>
+              </alternate>
+            </sequence>
+          </content>
+        </elementSpec>
         <elementSpec ident="fileDesc" mode="change">
           <content>
             <sequence maxOccurs="1" minOccurs="1">
@@ -93,17 +167,48 @@
         </elementSpec>
         <elementSpec ident="legalActor" ns="http://www.cei.lmu.de/tei/tei_auth" mode="add"
           module="header">
-          <desc versionDate="2025-09-13" xml:lang="en"></desc>
+          <desc versionDate="2025-09-13" xml:lang="en">Legal actors are those persons and institutions that are committed to the social reality created by a documnet. This can be notaries validating a text, legal parties of the act described in the text, witnesses to the legal act etc.</desc>
           <classes>
             <memberOf key="att.global"/>
           </classes>
+          <content>
+            <alternate minOccurs="1" maxOccurs="unbounded">
+              <classRef key="model.pLike"/>
+              <classRef key="model.nameLike.agent"/>
+              <classRef key="model.publicationStmtPart.agency"/>
+              <textNode/>
+            </alternate>
+          </content>
         </elementSpec>
         <elementSpec ident="issued" ns="http://www.cei.lmu.de/tei/tei_auth" mode="add"
           module="header">
-          <desc versionDate="2025-09-13" xml:lang="en"></desc>
+          <desc versionDate="2025-09-13" xml:lang="en">Date and place on which a document was made official, and by this the social reality describe in it becomes existent.</desc>
           <classes>
             <memberOf key="att.global"/>
           </classes>
+          <content>
+            <alternate minOccurs="1" maxOccurs="unbounded">
+              <classRef key="model.pLike"/>
+              <classRef key="model.dateLike"/>
+              <classRef key="model.placeLike"/>
+              <textNode/>
+            </alternate>
+          </content>
+        </elementSpec>
+        <elementSpec ident="authen" ns="http://www.cei.lmu.de/tei/tei_auth" mode="add"
+          module="header">
+          <desc versionDate="2025-09-13" xml:lang="en">Any kind of authentication method.</desc>
+          <classes>
+            <memberOf key="att.global"/>
+            <memberOf key="att.typed"/>
+          </classes>
+          <content>
+            <alternate minOccurs="1" maxOccurs="unbounded">
+              <classRef key="model.pLike"/>
+              <textNode/>
+            </alternate>
+          </content>
+          <remarks><p>Several elements in the TEI can have the function of a means of authentication, like a <gi>seal</gi>, a signature (<gi>signed</gi>) or a <gi>stamp</gi>. The <gi>authen</gi> element is considered an generalisation of these elements for authentication practices not covered with dedicated elements.</p></remarks>
         </elementSpec>
         <elementSpec ident="authenticationStmt" ns="http://www.cei.lmu.de/tei/tei_auth" mode="add"
           module="header">
@@ -138,14 +243,16 @@
                   <legalActor><persName ref="https://d-nb.info/gnd/118819097">The Emperor Qín Shǐhuángdì</persName></legalActor>
                   <issued><date>Some fancy chinese dating clause</date></issued>
                 </authenticationStmt>
-                <sourceDesc>
-                  <p>No print source exists: this is an original digital text</p>
-                </sourceDesc>
               </fileDesc>
             </egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="sealDesc" mode="change">
+        <elementSpec ident="seal" mode="change">
+          <classes mode="change">
+            <memberOf key="model.authDescPart"/>
+          </classes>
+        </elementSpec>
+        <elementSpec ident="watermark" mode="change">
           <classes mode="change">
             <memberOf key="model.authDescPart"/>
           </classes>
@@ -167,6 +274,7 @@
           <classes/>
         </classSpec>
       </schemaSpec>
+      </div>
     </body>
   </text>
 </TEI>
