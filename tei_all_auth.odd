@@ -64,7 +64,7 @@
           <list>
             <item>the method of authentication itself (<specDesc key="authDesc"/>),</item> 
             <item>the social actors committed to claim of the document (<specDesc key="legalActor"/>) and</item>
-            <item>the temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>).</item>
+            <item>The temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>).</item>
           </list></p>
         <div>
           <head>Method of authentication itself (<specDesc key="authDesc"/>)</head>
@@ -96,8 +96,8 @@
           </egXML>
         </div>
         <div>
-          <head>the temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>)</head>
-          <p>Time and place of the preformative act describe jurisdiction and </p>
+          <head>The temporal and geographical allocation of the performative utterance of the text (<specDesc key="issued"/>)</head>
+          <p>Time and place of the preformative act can describe jurisdiction and gives starting points to the claim of the text. </p>
           <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:lang="lat" source="#XXXX">
             <issued>
               <placeName>###TODO###</placeName>
@@ -179,11 +179,8 @@
           </classes>
           <content>
             <alternate>
-              <sequence minOccurs="1"
-                maxOccurs="unbounded">
-                <classRef key="model.authDescPart"
+              <classRef key="model.authDescPart"
                   minOccurs="0" maxOccurs="unbounded"/>
-              </sequence>
               <classRef key="model.pLike" minOccurs="1"
                 maxOccurs="unbounded"/>
             </alternate>
