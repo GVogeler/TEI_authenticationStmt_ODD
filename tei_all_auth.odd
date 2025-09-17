@@ -38,6 +38,7 @@
         <specDesc key="signed"/>
         <specDesc key="stamp"/>
         <specDesc key="watermark"/>
+        <specDesc key="xenoData"/>
       </specList>
       </p>
       <div>
@@ -75,7 +76,7 @@
               <seal>###TODO###</seal>
             </authDesc>
           </egXML>
-          <p>Technical methods of marking authenticity can be a <specDesc key="watermark"/>, as a more or less hidden sign embedded in the writing material or a digital file. In the digital realm all sorts digital certificate exist as cryptographic equivalent of a seal or signature in the digital sphere. Algorithmic authentication, e.g. through a blockchain ledger are a technical infrastructure acting as validators in the digital domain.</p>
+          <p>Technical methods of marking authenticity can be a <specDesc key="watermark"/>, as a more or less hidden sign embedded in the writing material or a digital file. In the digital realm all sorts digital certificate exist as cryptographic equivalent of a seal or signature in the digital sphere. Algorithmic authentication, e.g. through a blockchain ledger are a technical infrastructure acting as validators in the digital domain. For this purpose, the description of the authentication can also include non-TEI description of authentication like <ref target="https://www.w3.org/TR/xmldsig-core">W3C recommendation how to use XML for digital signatures</ref>.</p>
           <p>The <att>type</att> of the <gi>authen</gi> element should preferably reference controlled vocabularies, like the <title ref="https://www.cei.lmu.de/VID">Vocabulaire Internationale de la Diplomatique</title>.</p>
           <p>The element includes the possibility to describe the method of authentication in prose in the reflection of the role of ritual performances creating the social object inscribed in a document. Handing over the document, public reading of a document, courtroom verdicts or oaths can be part of the authentication and need verbal description to record them.</p>
           <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:lang="lat" source="#XXXX">
@@ -85,12 +86,13 @@
         <div>
           <head>Social actors committed to claim of the document (<specDesc key="legalActor"/>)</head>
           <p>Several persons, groups, and institutions can issue the authority of the document. Grantors, donors, sovereigns, magistrate, or in general the <term>issuer</term>of a document are authors of the perforamtive text. They produces the document and claims authority behind it, give a privilege or property, or are the  political or legal authorities whose will the document embodies. Chanceries, i.e. specialized office in royal or ecclesiastical administrations responsible for drafting and issuing charters and diplomas, notaries as legally empowered scribe or official who writes and validates documents in civic and ecclesiastical contexts or the individual scribe physically writing the text, often trained in distinctive scripts signaling authenticity guarantee procedural authenticity.</p>
-          <p>Legal actors can be mediating. Witnesses attest to the truth and legality of the act. Counter-signer add a second signature to strengthen trust in the first. Seal bearer charged with affixing and safeguarding the seal, which authenticates the document, the bureaucrats keeping official registers, against which copies can be checked, custodians and archivist are responsible for preserving and controlling access to the document.</p>
-          <p>In more contemporary environments, specialised registrars of Vital Statistics certify births, deaths, marriages. The insitutions of a notary public ensures the authenticity of signatures and transactions. Auditors check the correctness of documents within bureaucratic or financial systems. In digital environments Certification Authorities issue digital certificates that are used to signed documents.</p>
+          <p>Legal actors can be mediating: Witnesses attest to the truth and legality of the act. Counter-signer add a second signature to strengthen trust in the first. Seal bearer charged with affixing and safeguarding the seal, which authenticates the document, the bureaucrats keeping official registers, against which copies can be checked, custodians and archivist are responsible for preserving and controlling access to the document.</p>
+          <p>In more contemporary environments, specialised registrars of vital statistics certify births, deaths, or marriages. The insitutions of a notary public ensures the authenticity of signatures and transactions. Auditors check the correctness of documents within bureaucratic or financial systems. In digital environments Certification Authorities issue digital certificates that are used to signed documents.</p>
           <p>On the side of recipients and users, beneficiaries and grantees are legal actors involved as they receive rights or recognition through the document. A petitioner requests a document or privilege and profits from them. Documents become social reality through an the formal audience named in the document that can be the general public, that, as a community can acknowledge the document’s authority (e.g., through ceremonial reading).</p>
           <p>These roles can be assigned through the <att>type</att> attribute of the <gi>legalActor</gi> element and identified through the naming mechanisms provided by these guidelines. It is recommended to use shared vocabularies for these role, e.g. through the <title ref="https://www.cei.lmu.de/VID">Vocabulare Internationale de la Diplomatique</title>.</p>
-          <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:lang="lat" source="#XXXX">
-            <legalActor><persName>###TODO###</persName></legalActor>
+          <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:lang="lat" source="#MonTibetHistIII.8">
+            <legalActor type="https://www.cei.lmu.de/VID/#16"><persName xml:lang="Hant">元順<rolename>帝</rolename></persName>
+              <persName xml:lang="en"><roleName>Emperor</roleName> Toyon Temür</persName></legalActor>
           </egXML>
         </div>
         <div>
@@ -242,11 +244,9 @@
           </classes>
           <content>
             <sequence maxOccurs="1" minOccurs="1">
-              <sequence maxOccurs="1" minOccurs="1">
-                <elementRef key="authDesc"/>
-                <elementRef key="legalActor"/>
-                <elementRef key="issued"/>
-              </sequence>
+              <elementRef key="authDesc"/>
+              <elementRef key="legalActor"/>
+              <elementRef key="issued"/>
             </sequence>
           </content>
           <exemplum xml:lang="en" >
@@ -289,6 +289,11 @@
             <memberOf key="model.authDescPart"/>
           </classes>
         </elementSpec>
+        <elementSpec ident="xenoData" mode="change">
+          <classes mode="change">
+            <memberOf key="model.authDescPart"/>
+          </classes>
+        </elementSpec>
         <classSpec ident="model.authDescPart" type="model" mode="add">
           <gloss versionDate="2025-09-14" xml:lang="en"></gloss>
           <desc versionDate="2025-09-14" xml:lang="en">Elements that can be used as means of
@@ -301,6 +306,7 @@
     <back>
       <listBibl>
         <bibl xml:id="Ramble2018">Ramble, Charles: Producing ‘South Asian’ Tibetan Documents in Highland Nepal, 19th to 20th Centuries: The Emergence and Disappearance of a Local Diplomatic Tradition, in Cubelic, Simon, Michaels, Axel and Zotter, Astrid (eds.): Studies in Historical Documents from Nepal and India, Heidelberg: Heidelberg University Publishing, 2018 (Documenta Nepalica: Book Series, Band 1), p. 111–133. DOI:10.17885/heiup.331.c4130</bibl>
+        <bibl xml:id="MonTibetHistIII.8">Diplomata Mongolica. - Herrscherurkunden aus der Zeit des mong. Großreiches für tib. Adelshäuser, Geistliche &amp; Klöster. Mittelmongolische Urkunden in ‘Phags pa-Schrift. Edition, Übersetzung, Analyse. (Middle Mongolian documents in 'Phags pa script, issued to Tibetan addressees) ed. by Karl-Heinz Everding. International Institute for Tibetan and Buddhist Studies, Halle 2006 (Monumenta Tibetica historica III,8).</bibl>
       </listBibl>
     </back>
   </text>
