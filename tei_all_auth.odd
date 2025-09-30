@@ -29,7 +29,7 @@
       <p>Texts can create social reality. Humans have developed several methods to warrant that they gain trust. These methods for procedural and symoblic authentication include signatures, seals or stamps committing the person represented by this to claim made by the text. This chapter introduces the <specDesc key="authenticationStmt"/> to describe this. The user of this element can include simple prose or use three elements to be more explicit <specList>
         <specDesc key="authDesc"/>
         <specDesc key="issued"/>
-        <specDesc key="leaglActor"/>
+        <specDesc key="legalActor"/>
       </specList>
       The <gi>authDesc</gi> can inlude a systematic description of the individual features used for authentication:
       <specList>
